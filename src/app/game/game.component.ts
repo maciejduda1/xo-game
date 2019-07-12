@@ -49,7 +49,7 @@ export class GameComponent implements OnInit {
 
 
   selectField(fieldNumber: number) {
-    if (this.playerTurn && !this.gameBoard[fieldNumber].playerSelected || !this.gameBoard[fieldNumber].compSelected ) {
+    if (this.playerTurn && !this.gameBoard[fieldNumber].playerSelected && !this.gameBoard[fieldNumber].compSelected ) {
       this.gameBoard[fieldNumber] = {
         ...this.gameBoard[fieldNumber],
         value: true,
@@ -62,9 +62,9 @@ export class GameComponent implements OnInit {
   }
 
   computerMove(fieldNumber: number) {
-    if ( !this.gameBoard[fieldNumber].playerSelected || !this.gameBoard[fieldNumber].compSelected ) {
+    if ( !this.gameBoard[fieldNumber + 1].playerSelected && !this.gameBoard[fieldNumber + 1].compSelected ) {
       this.gameBoard[fieldNumber + 1] = {
-        ...this.gameBoard[fieldNumber],
+        ...this.gameBoard[fieldNumber + 1],
         value: true,
         compSelected: true
       };
