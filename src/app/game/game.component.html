@@ -1,0 +1,17 @@
+<div class="row justify-content-center mr-auto ml-auto">
+  <div class="col-12 col-lg-4 text-center">
+    <h4>Moves:</h4>
+  </div>
+  <div class="col-12 col-lg-8 border text-center">
+    <table class="table-bordered">
+      <tbody>
+        <div class="tr" *ngFor="let row of boardRows; let i = index">
+          <td *ngFor="let row of boardRows; let k = index" (click)="!gameEnded ? selectField(i*boardRows.length + k +1 ) : ''">
+            <span *ngIf="gameBoard[i*boardRows.length + k +1].playerSelected" style="font-size: 25px; line-height: 50px">X</span>
+            <span *ngIf="gameBoard[i*boardRows.length + k +1].compSelected" style="font-size: 25px; line-height: 50px">O</span>
+          </td>
+        </div>
+      </tbody>
+    </table>
+  </div>
+</div>

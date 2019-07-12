@@ -1,0 +1,20 @@
+<div class="col-8 justify-content-center mr-auto ml-auto">
+  <form (ngSubmit)="onSubmit(form)" #form="ngForm" class="text-center">
+    <div class="form-group">
+      <label for="name"  >Podaj swoje imię:</label>
+      <input
+        class="form-control"
+        type="text"
+        name="name"
+        pattern="[a-zA-Z]*"
+        minlength="3"
+        required
+        [(ngModel)]="nameInputValue">
+        <p *ngIf="(form.touched || form.dirty) && nameInputValue.trim().length < 3">
+          Min. 3 znaki!
+        </p>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Start</button>
+  </form>
+</div>
+
